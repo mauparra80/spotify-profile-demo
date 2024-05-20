@@ -23,22 +23,26 @@ const ACLData = [
   "Miss Tutti And The Fruity Band", "Andrew & Polly", "School of Rock", "The Barton Hills Choir"
 ]
 
-if (!code) {
-  redirectToAuthCodeFlow(clientId);
-} else {
-  const accessToken = await getAccessToken(clientId, code); //calling API?
-  // const profile = await fetchProfile(accessToken); 
-  const tracks = fetchAllSavedTracks(accessToken).then(tracks => {
-    console.log("total tracks fetched: ", tracks.length);
-    console.log(tracks);
-    matchedTracks = crossReferenceData(tracks, ACLData);
-    populateUI(matchedTracks);
-  })
-  
-  // console.log(profile);
-  // saveTracks(profile);
-  // populateUI(profile); //assuming function that will fill fields
+async function init() {
+  if (!code) {
+    redirectToAuthCodeFlow(clientId);
+  } else {
+    const accessToken = await getAccessToken(clientId, code); //calling API?
+    // const profile = await fetchProfile(accessToken); 
+    const tracks = fetchAllSavedTracks(accessToken).then(tracks => {
+      console.log("total tracks fetched: ", tracks.length);
+      console.log(tracks);
+      matchedTracks = crossReferenceData(tracks, ACLData);
+      populateUI(matchedTracks);
+    })
+    
+    // console.log(profile);
+    // saveTracks(profile);
+    // populateUI(profile); //assuming function that will fill fields
+  }
 }
+init();
+
 
 
 
