@@ -8,7 +8,7 @@ export default async function redirectToAuthCodeFlow(clientId) {
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("response_type", "code");
-  params.append("redirect_uri", "http://localhost:5173/callback");
+  params.append("redirect_uri", "https://spotify-profile-demo.netlify.app/callback"); //what do we name this?
   // params.append("scope", "user-read-private user-read-email");
   params.append("scope", "user-library-read playlist-read-private playlist-read-collaborative ");
   params.append("code_challenge_method", "S256");
