@@ -40,6 +40,8 @@ if (!code) {
   // populateUI(profile); //assuming function that will fill fields
 }
 
+
+
 // async function redirectToAuthCodeFlow(clientId) {
 //   //Redirect to spotify authorization page on enter
 // }
