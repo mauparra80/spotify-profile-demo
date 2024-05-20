@@ -67,16 +67,23 @@ async function fetchAllSavedTracks(token) {
   const tracks = [];
 
   try {
-    while (url) {
-      const response = await axios.get(url, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-      tracks.push(...response.data.items);
-      url = response.data.next;
-    }
+    const response = await axios.get(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    tracks.push(...response.data.items);
+    // while (url) {
+    //   const response = await axios.get(url, {
+    //     headers: {
+    //       'Authorization': `Bearer ${token}`,
+    //       'Content-Type': 'application/json'
+    //     }
+    //   });
+    //   tracks.push(...response.data.items);
+    //   url = response.data.next;
+    // }
   } catch (error) {
     console.log("Error fetching tracks: ", error);
     return null;
