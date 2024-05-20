@@ -4,6 +4,8 @@ export default async function getAccessToken(clientId, code) {
   ? 'http://localhost:5173/callback' 
   : 'https://spotify-profile-demo.netlify.app/callback';
 
+  console.log('redirectUri in accesstoken is',redirectUri);
+
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");

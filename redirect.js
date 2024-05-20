@@ -6,6 +6,8 @@ export default async function redirectToAuthCodeFlow(clientId) {
     ? 'http://localhost:5173/callback' 
     : 'https://spotify-profile-demo.netlify.app/callback';
 
+  console.log('redirect uri in redirect.js is',redirectUri);
+
   localStorage.setItem("verifier", verifier);
 
   const params = new URLSearchParams();
